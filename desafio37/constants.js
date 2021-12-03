@@ -1,5 +1,5 @@
 //Mongo PASSWORD
-const MONGO_ATLAS_PASS = 'Mongo.2049';
+const MONGO_ATLAS_PASS = 'pass';
 
 //Port
 const PORT = parseInt(process.argv[2]) || 8080;
@@ -11,8 +11,8 @@ const GMAIL_PASSWORD = 'password';
 const ETHEREAL_PASSWORD = '7sp9PCSnB21PQX22tV';
 
 //Facebook secret
-const FACEBOOK_CLIENT_ID = 488261922526306;
-const FACEBOOK_CLIENT_SECRET = '19f06b75faed5ef46c93c820250374d0';
+const FACEBOOK_CLIENT_ID = 48;
+const FACEBOOK_CLIENT_SECRET = '}';
 
 //PHONE NUMBER
 const PHONE_NUMBER = +543534279005;
