@@ -6,9 +6,9 @@ const router = express.Router();
 const passport = require('passport');
 const bCrypt = require('bcrypt');
 const LocalStrategy = require('passport-local').Strategy;
-const userSchema = require('../schemas/userSchema');
+const userSchema = require('../users/userSchema');
 
-const {transporterG, mailOptionsG} = require('../mail/gmail')
+const {transporterG, mailOptionsG} = require('../../mail/gmail')
 
 
 passport.serializeUser(function(user, done){

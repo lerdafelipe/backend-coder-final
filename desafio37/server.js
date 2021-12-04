@@ -1,9 +1,9 @@
 const express = require('express');
 const app = express();
 //Routes
-const products = require('./routes/productos.route');
-const mensajes = require('./routes/mensajes.route');
-const orders = require('./routes/orders.route');
+const products = require('./modules/products/productos.route');
+const mensajes = require('./modules/mensajes/mensajes.route');
+const orders = require('./modules/orders/orders.route');
 //const auth = require('./routes/auth.route');
 
 //Constantes
@@ -70,7 +70,7 @@ app.use(passport.session());
 ////////////////////////
 const bCrypt = require('bcrypt');
 const LocalStrategy = require('passport-local').Strategy;
-const userSchema = require('./schemas/userSchema');
+const userSchema = require('./modules/users/userSchema');
 
 const {transporterG, mailOptionsG} = require('./mail/gmail')
 
@@ -127,7 +127,7 @@ app.get('/log', (req, res)=>{
     if (req.isAuthenticated()){
         res.json({log: true})
     }else res.json({log: false})
-})
+});
 
 app.post('/login', passport.authenticate('login', {failureRedirect: '/error-login'}), (req, res)=>{
     res.json('Success!')

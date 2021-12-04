@@ -1,4 +1,4 @@
-const mensajesSchema = require('../schemas/mensajesSchema');
+const mensajesSchema = require('./mensajesSchema');
 
 
 const getMensajes = async (req, res)=>{

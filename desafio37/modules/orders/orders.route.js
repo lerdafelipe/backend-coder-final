@@ -8,7 +8,7 @@ const {
     postOrder, 
     putOrder, 
     deleteOrder
-} = require('../controllers/ordersController');
+} = require('./ordersController');
 
 
 //Ruta de listar ordenes

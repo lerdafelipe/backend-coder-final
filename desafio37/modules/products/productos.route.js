@@ -8,7 +8,7 @@ const {
     postProduct, 
     putProduct, 
     deleteProduct
-} = require('../controllers/productsController');
+} = require('./productsController');
 
 
 //Ruta de listar productos

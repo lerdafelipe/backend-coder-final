@@ -26,6 +26,7 @@ const mailOptionsG = (user)=>{
     }
 };
 
+
 module.exports={
     transporterG,
     mailOptionsG

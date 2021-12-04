@@ -8,7 +8,7 @@ const {
     postMensaje, 
     putMensaje, 
     deleteMensaje
-} = require('../controllers/mensajesController');
+} = require('../mensajes/mensajesController');
 
 
 //Ruta de listar mensaje

@@ -169,12 +169,12 @@ const renderCart = ()=>{
 }
 
 const sendCart = ()=>{
-    fetch(`/orders}`, {
+    fetch(`/orders`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({items: cart, author: user})
     }).then(alert('Carrito enviado'))
-        .then(fetchProducts());
+        .then(console.log('cart', cart, 'user', user));
 }
