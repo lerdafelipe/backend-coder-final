@@ -2,6 +2,8 @@
 const express = require('express');
 //Router
 const router = express.Router();
+//
+const userSchema = require('../schemas/userSchema');
 
 //transporter
 const {
@@ -18,7 +20,6 @@ const {
 //
 const passport = require('passport');
 const FacebookStrategy = require('passport-facebook').Strategy;
-const userSchema = require('../schemas/userSchema');
 
 //Constants
 const {FACEBOOK_CLIENT_ID, FACEBOOK_CLIENT_SECRET} = require('../constants');

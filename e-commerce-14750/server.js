@@ -62,6 +62,123 @@ const passport = require('passport');
 app.use(passport.initialize());
 app.use(passport.session());
 
+////////////////////
+///////////////////
+///////////////////
+
+
+const userSchema = require('./schemas/userSchema');
+
+//transporter
+const {
+    transporter,
+    mailOptions
+} = require('./mail/mail');
+
+//transporter Gmail
+const {
+    transporterG,
+    mailOptionsG
+} = require('./mail/gmail');
+
+
+const FacebookStrategy = require('passport-facebook').Strategy;
+
+//Constants
+const {FACEBOOK_CLIENT_ID, FACEBOOK_CLIENT_SECRET} = require('./constants');
+
+
+passport.serializeUser(function (user, done) {
+    done(null, user._id)
+});
+passport.deserializeUser(async function (_id, done) {
+    const user = userSchema.findById(_id);
+    done(null, user);
+});
+
+passport.use(new FacebookStrategy({
+    clientID: FACEBOOK_CLIENT_ID,
+    clientSecret: FACEBOOK_CLIENT_SECRET,
+    callbackURL: '/auth/facebook/callback',
+    profileFields: ['id', 'first_name', 'last_name', 'picture', 'email'],
+    scope: ['email']
+},
+(accessToken, refreshToken, profile, done) => {
+    process.nextTick(() => {
+        console.log(profile)
+      userSchema.findOne({provider_id: profile.id}, (err, user) => {
+        if (err) return done(err)
+        if (user) return done(null, user)
+        else {
+          let newUser = new userSchema(profile._json)
+          newUser.provider = 'facebook'
+
+          newUser.save((err) => {
+            if(err) throw err
+            return done(null, newUser)
+          })
+        }
+      })
+    })
+  })
+);
+
+app.get('/log', (req, res) => {
+    if (req.isAuthenticated()) {
+        res.json({ log: true })
+    } else res.json({ log: false })
+});
+
+app.get('/auth/facebook', passport.authenticate('facebook'));
+
+app.get('/auth/facebook/callback', passport.authenticate('facebook', {
+    successRedirect: '/auth/success',
+    failureRedirect: '/auth/fail-login'
+})
+);
+
+app.get('/auth/success', (req, res)=>{    
+    res.send('okk');
+    
+});
+
+app.get('/fail-login', (req, res) => {
+    res.send('error de logueo')
+});
+
+app.get('/auth/logout', (req, res) => {
+    let date = new Date;
+    transporter.sendMail(mailOptions('deslogueo', req.user.first_name, date), (err, info) => {
+        if(err) {
+            console.log(err)
+            return err
+        }
+        console.log(info)
+    });
+    req.logout();
+    res.send('Success!');
+});
+
+app.get('/info-user', (req, res) => {
+    if (req.isAuthenticated()) {
+        res.json({ user: req.user });
+    }
+});
+
+
+
+//////////////////
+//////////////////
+/////////////////
+
+
+
+
+
+
+
+
+
 //Server
 const server = app.listen(PORT, () => {
     console.log('Servidor escuchando en el puerto 8080');
