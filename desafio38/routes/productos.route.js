@@ -17,10 +17,10 @@ const { buildSchema } = require('graphql');
 
 // GraphQL schema
 //https://graphql.org/graphql-js/basic-types/
-var schema = buildSchema(`
+const schema = buildSchema(`
     type Query {
-        product: [Productos],
-        products: [Productos],
+        product(_id: String): [Productos],
+        products: [Productos]
     },
     type Mutation {
         postProduct(nombre: String,categoria: String!,stock: Int!, precio: Int!): Productos
@@ -30,7 +30,7 @@ var schema = buildSchema(`
         categoria: String,
         stock: Int,
         precio: Int,
-        id: String
+        _id: String
     }    
 `);
 
@@ -40,7 +40,7 @@ var schema = buildSchema(`
 var root = {
     product: getOneProduct,
     products: getProducts,
-    newproduct: postProduct
+    postProduct: postProduct
 };
 
 

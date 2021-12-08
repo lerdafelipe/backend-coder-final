@@ -8,11 +8,10 @@ const getProducts = async (req, res)=>{
     //res.json(products);
 };
 
-const getOneProduct = async (nombre)=>{
+const getOneProduct = async (id)=>{
     //const {id} = req.params;
-
-    const product = await productsSchema.find({nombre: nombre});
-
+    const product = await productsSchema.find(id);
+    console.log(product);
     return product;
     //res.json(product);
 };
@@ -22,8 +21,8 @@ const postProduct = async (product)=>{
     const newProuct = new productsSchema(product);
 
     let productSave = await newProuct.save();
-
     return productSave;
+    //return productSave;
     //res.json(productSave);
 };
 
