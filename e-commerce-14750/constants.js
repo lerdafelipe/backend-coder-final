@@ -1,21 +1,21 @@
 //Mongo PASSWORD
-const MONGO_ATLAS_PASS = '5';
+const MONGO_ATLAS_PASS = 'Mongo.2049';
 
 //Port
 const PORT = parseInt(process.argv[2]) || 8080;
 
 //Gmail password
-const GMAIL_PASSWORD = '5';
+const GMAIL_PASSWORD = '';
 
 //Facebook secret
-const FACEBOOK_CLIENT_ID = 4885;
-const FACEBOOK_CLIENT_SECRET = '5';
+const FACEBOOK_CLIENT_ID = 488261922526306;
+const FACEBOOK_CLIENT_SECRET = '19f06b75faed5ef46c93c820250374d0';
 
 //PHONE NUMBER
-const PHONE_NUMBER = 5;
+const PHONE_NUMBER = +543534279005;
 
 //mail owner
-const MAIL_OWNER = '5';
+const MAIL_OWNER = 'lerdafelipe@gmail.com';
 
 //Twilio
 const accountSid = 'AC0b439be5828c1a88f32b7125b0e73685';

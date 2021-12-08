@@ -105,13 +105,21 @@ passport.use(new FacebookStrategy({
 },
 (accessToken, refreshToken, profile, done) => {
     process.nextTick(() => {
-        console.log(profile)
-      userSchema.findOne({provider_id: profile.id}, (err, user) => {
-        if (err) return done(err)
-        if (user) return done(null, user)
+        console.log(profile);
+      userSchema.findOne({id: profile.id}, (err, user) => {
+        
+        if (err){ 
+            console.log('err', err)
+            return done(err)
+        }
+        if (user){ 
+            console.log('user', user)
+            return done(null, user)
+        }
         else {
           let newUser = new userSchema(profile._json)
-          newUser.provider = 'facebook'
+          //newUser.provider = 'facebook';
+          console.log('newUser', newUser);
 
           newUser.save((err) => {
             if(err) throw err
@@ -132,7 +140,7 @@ app.get('/log', (req, res) => {
 app.get('/auth/facebook', passport.authenticate('facebook'));
 
 app.get('/auth/facebook/callback', passport.authenticate('facebook', {
-    successRedirect: '/auth/success',
+    successRedirect: '/',
     failureRedirect: '/auth/fail-login'
 })
 );
