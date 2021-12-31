@@ -2,28 +2,22 @@ const express = require('express');
 //Router
 const router = express.Router();
 //Controllers
-const {
-    getMensajes, 
-    getOneMensaje, 
-    postMensaje, 
-    putMensaje, 
-    deleteMensaje
-} = require('../controllers/mensajesController');
+const {getMensajes, getOneMensaje, postMensaje, putMensaje, deleteMensaje} = require('../controllers/mensajes/index');
 
-
-//Ruta de listar mensaje
+//route to return all messages
 router.get('/', getMensajes);
 
-//Ruta de listar un solo mensaje
+//Route to return only one message
 router.get('/:id', getOneMensaje);
 
-//Ruta post para guardar un mensaje
+//Route to upload one message
 router.post('/', postMensaje);
 
-//Ruta post para actualizar un mensaje
+//Route to update one message
 router.put('/:id', putMensaje);
 
-//Ruta post para borrar un mensaje
+//Ruta to delete one message
 router.delete('/:id', deleteMensaje);
 
+//export module messages route
 module.exports = router;

@@ -2,28 +2,22 @@ const express = require('express');
 //Router
 const router = express.Router();
 //Controllers
-const {
-    getProducts, 
-    getOneProduct, 
-    postProduct, 
-    putProduct, 
-    deleteProduct
-} = require('../controllers/productsController');
+const {getProducts, getOneProduct, postProduct, putProduct, deleteProduct} = require('../controllers/products/index');
 
 
-//Ruta de listar productos
+//Route to return all products
 router.get('/', getProducts);
 
-//Ruta de listar un solo producto
+//Route to return only one product
 router.get('/:id', getOneProduct);
 
-//Ruta post para guardar un product
+//Route to upload one product
 router.post('/', postProduct);
 
-//Ruta post para actualizar un product
+//Route to update one product
 router.put('/:id', putProduct);
 
-//Ruta post para borrar un product
+//Route to delete one product
 router.delete('/:id', deleteProduct);
 
 module.exports = router;

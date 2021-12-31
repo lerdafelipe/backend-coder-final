@@ -6,7 +6,7 @@ const mensajes = require('./routes/mensajes.route');
 const orders = require('./routes/orders.route');
 //const auth = require('./routes/auth.route');
 
-//import keys like constants
+//import keys as constants
 const {MONGO_ATLAS_PASS, PORT} = require('./constants');
 
 //Function connection database
@@ -166,7 +166,7 @@ app.get('/logout', (req, res)=>{
 
 //This endpoint send the info of the user with the session active
 app.get('/info-user', async(req, res)=>{
-    let username = ('req', req.user._conditions);
+    let username = req.user._conditions;
     let userCome = await userSchema.find(username);
     let user = {email:userCome[0].email, username:userCome[0].username, direccion:userCome[0].direccion, edad:userCome[0].edad, phone:userCome[0].phone, avatar:userCome[0].avatar}
     res.json(user);
@@ -174,13 +174,7 @@ app.get('/info-user', async(req, res)=>{
 ////////////////////////
 ///////////////////////
 ////////////////////////
-
 //Server
-const server = app.listen(PORT, () => {
-    console.log('Servidor escuchando en el puerto 8080');
-});
-
+const server = app.listen(PORT, () => {console.log('Servidor escuchando en el puerto 8080');});
 //errors
-server.on('error', error => {
-    res.json({ error: -2, descripcion: 'Ruta con método no implementada' }, error);
-});
+server.on('error', error => {res.json({ error: -2, descripcion: 'Ruta con método no implementada' }, error);});

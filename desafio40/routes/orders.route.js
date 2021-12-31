@@ -2,28 +2,21 @@ const express = require('express');
 //Router
 const router = express.Router();
 //Controllers
-const {
-    getOrders, 
-    getOneOrder, 
-    postOrder, 
-    putOrder, 
-    deleteOrder
-} = require('../controllers/ordersController');
+const {getOrders, getOneOrder, postOrder, putOrder, deleteOrder} = require('../controllers/orders/index');
 
-
-//Ruta de listar ordenes
+//Route to return the orders
 router.get('/', getOrders);
 
-//Ruta de listar 1 orden
+//Route to return only one order
 router.get('/:id', getOneOrder);
 
-//Ruta post para guardar una orden
+//Route to upload one order
 router.post('/', postOrder);
 
-//Ruta post para actualizar una orden
+//Route to update one order
 router.put('/:id', putOrder);
 
-//Ruta post para borrar una orden
+//Route to delete one order
 router.delete('/:id', deleteOrder);
 
 module.exports = router;

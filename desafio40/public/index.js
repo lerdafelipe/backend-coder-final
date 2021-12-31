@@ -81,17 +81,19 @@ btnChange.addEventListener('click', () => {
         body: JSON.stringify({ nombre: titleNew.value, precio: priceNew.value, stock: stockNew.value, categoria: descriptionNew.value})
     }).then(alert('Producto Modificado'))
         .then(fetchProducts());
-    price.value = '';
-    title.value = '';
-    thumbnail.value = '';
+        titleNew.value = '';
+        priceNew.value = '';
+        descriptionNew.value = '';
+        stockNew.value = '';
+        idChange.value = '';
 });
 //Edit products easiest UI
 const innerEdit = (data) => {
-    titleNew.value = data.nombre;
-    priceNew.value = data.precio;
-    descriptionNew.value = data.categoria;
-    stockNew.value = data.stock;
-    idChange.value = data._id;
+    titleNew.value = data[0].nombre;
+    priceNew.value = data[0].precio;
+    descriptionNew.value = data[0].categoria;
+    stockNew.value = data[0].stock;
+    idChange.value = data[0]._id;
 }
 
 const edit = (id) => {

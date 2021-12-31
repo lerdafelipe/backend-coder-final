@@ -3,6 +3,7 @@ const nodemailer = require('nodemailer');
 //Constantes
 const {GMAIL_PASSWORD, MAIL_OWNER} = require('../constants');
 
+//Create the nodemailer transporter for gmail
 const transporterG = nodemailer.createTransport({
     service: 'gmail',
     auth: {
@@ -11,6 +12,7 @@ const transporterG = nodemailer.createTransport({
     }
 });
 
+//Set the contento of the mail with variables
 const mailOptionsG = (user)=>{
     return {
         from: 'Servidor Node.js',
@@ -26,6 +28,7 @@ const mailOptionsG = (user)=>{
     }
 };
 
+//Export the modules to use in another component
 module.exports={
     transporterG,
     mailOptionsG
