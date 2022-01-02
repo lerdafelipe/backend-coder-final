@@ -1,5 +1,5 @@
 //Model mongoose
-const mensajesSchema = require('../schemas/mensajesSchema');
+const mensajesSchema = require('../../schemas/mensajesSchema');
 
 //Function to get all messages
 const getMensajes = async (req, res)=>{
@@ -53,10 +53,4 @@ const deleteMensaje = async (req, res)=>{
 };
 
 
-module.exports = {
-    getMensajes, 
-    getOneMensaje, 
-    postMensaje, 
-    putMensaje, 
-    deleteMensaje
-};
+module.exports = {getMensajes, getOneMensaje, postMensaje, putMensaje, deleteMensaje};

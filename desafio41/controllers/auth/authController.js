@@ -1,5 +1,5 @@
-const userSchema = require('../schemas/userSchema');
-const {transporterG, mailOptionsG} = require('../mail/gmail');
+const userSchema = require('../../schemas/userSchema');
+const {transporterG, mailOptionsG} = require('../../mail/gmail');
 const bCrypt = require('bcrypt');
 
 //Function to encrypt the password

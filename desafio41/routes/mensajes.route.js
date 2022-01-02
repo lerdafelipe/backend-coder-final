@@ -2,7 +2,7 @@ const express = require('express');
 //Router
 const router = express.Router();
 //Controllers
-const {getMensajes, getOneMensaje, postMensaje, putMensaje, deleteMensaje} = require('../controllers/mensajesController');
+const {getMensajes, getOneMensaje, postMensaje, putMensaje, deleteMensaje} = require('../controllers/mensajes/index');
 
 //route to return all messages
 router.get('/', getMensajes);

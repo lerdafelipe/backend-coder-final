@@ -2,7 +2,7 @@ const express = require('express');
 //Router
 const router = express.Router();
 //Controllers
-const {getProducts, getOneProduct, postProduct, putProduct, deleteProduct} = require('../controllers/productsController');
+const {getProducts, getOneProduct, postProduct, putProduct, deleteProduct} = require('../controllers/products/index');
 
 
 //Route to return all products

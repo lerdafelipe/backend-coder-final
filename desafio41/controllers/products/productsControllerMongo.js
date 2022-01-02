@@ -1,4 +1,4 @@
-const productsSchema = require('../schemas/productsSchema');
+const productsSchema = require('../../schemas/productsSchema');
 
 //Function to get all products
 const getProducts = async (req, res)=>{
