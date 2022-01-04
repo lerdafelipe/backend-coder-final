@@ -7,7 +7,7 @@ const orders = require('./routes/orders.route');
 //const auth = require('./routes/auth.route');
 
 //import keys as constants
-const {MONGO_ATLAS_PASS, PORT} = require('./constants');
+const {MONGO_ATLAS_PASS, PORT} = require('./config');
 
 //Function connection database
 const Connection = require('./database/Connection');
