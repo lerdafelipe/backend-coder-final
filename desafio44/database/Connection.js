@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 //Constantes
-const {MONGO_ATLAS_PASS} = require('../constants');
+const {MONGO_ATLAS_PASS} = require('../config');
 
 const Connection = async ()=>{
     try {

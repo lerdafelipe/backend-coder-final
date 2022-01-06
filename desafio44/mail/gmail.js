@@ -1,7 +1,7 @@
 const nodemailer = require('nodemailer');
 
 //Constantes
-const {GMAIL_PASSWORD, MAIL_OWNER} = require('../constants');
+const {GMAIL_PASSWORD, MAIL_OWNER} = require('../config');
 
 //Create the nodemailer transporter for gmail
 const transporterG = nodemailer.createTransport({

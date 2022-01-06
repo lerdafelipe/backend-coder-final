@@ -1,8 +1,8 @@
-const orderSchema = require('../schemas/orderSchema');
+const orderSchema = require('../../schemas/orderSchema');
 //twilio
-const {accountSid, authToken, PHONE_NUMBER, MAIL_OWNER} = require('../constants');
+const {accountSid, authToken, PHONE_NUMBER, MAIL_OWNER} = require('../../constants');
 //gmail
-const transporterG = require('../mail/gmail');
+const transporterG = require('../../mail/gmail');
 
 const twilio = require('twilio')
 const client = twilio(accountSid, authToken);

@@ -2,7 +2,7 @@ const express = require('express');
 //Router
 const router = express.Router();
 //Controllers
-const {getOrders, getOneOrder, postOrder, putOrder, deleteOrder} = require('../controllers/ordersController');
+const {getOrders, getOneOrder, postOrder, putOrder, deleteOrder} = require('../controllers/orders/index');
 
 //Route to return the orders
 router.get('/', getOrders);

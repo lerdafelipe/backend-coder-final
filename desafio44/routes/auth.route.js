@@ -3,7 +3,7 @@ const express = require('express');
 //Router
 const router = express.Router();
 //controller for auth
-const {logout, isLog, SignUp, LogIn} = require('../controllers/authController');
+const {logout, isLog, SignUp, LogIn} = require('../controllers/auth/authController');
 //dependencies
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
